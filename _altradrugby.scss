@@ -1,0 +1,30 @@
+#container{
+	@include linear-grad(
+	(
+        ($primary,-20%,1),
+        (body(background),100%,1)
+    ),
+	'to bottom');
+}
+
+h1.ce_headline{@include paper(); text-align: center; padding: 1em; margin-bottom: 1em;
+	:not([class*=bg-]){background: body(block-background);}
+}
+.ce_headline{
+	&.oval{ border-radius: 200% 80% 200% 80%; margin-left: auto;margin-right: auto; aspect-ratio: 2/1.25; display: flex; align-items: center; justify-content: center; width: 400px; max-width: 100%; border: 1px solid rgba(0,0,0,0.25);
+		outline-style: dashed;
+    	outline-offset: -2em;
+    	outline-width: 16em;
+    	outline-color: rgba($primary,0.055);
+	}
+}
+
+.mod_article{margin-bottom: $spacing*1.5; padding: $spacing*1.5 0;
+  @include media-max(xs){margin-bottom: ($spacing*1.5)/2;padding: ($spacing*1.5)/2 0;}
+ }
+
+ .d-grid{
+ 	&.cols-autofit{
+ 		.block-card{min-width: $griditem-minwidth;}
+ 	}
+ }
