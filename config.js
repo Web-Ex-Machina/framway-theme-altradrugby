@@ -8,6 +8,6 @@ module.exports = {
 		// 'xs'  : '540px',
 		// 'xxs' : '100%',
 	},
-	'radius': '20px',
+	'radius': '30px',
 	'griditem-minwidth': '30ch',
 };
