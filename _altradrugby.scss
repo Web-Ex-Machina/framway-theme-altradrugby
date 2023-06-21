@@ -1,30 +1,131 @@
+$z_header: 100 !default;
 #container{
 	@include linear-grad(
 	(
-        ($primary,-20%,1),
-        (body(background),100%,1)
+        ($primary,0,1),
+        (body(background),80vw,1),
     ),
-	'to bottom');
+	'120deg');
 }
 
-h1.ce_headline{@include paper(); text-align: center; padding: 1em; margin-bottom: 1em;
-	:not([class*=bg-]){background: body(block-background);}
-}
 .ce_headline{
-	&.oval{ border-radius: 200% 80% 200% 80%; margin-left: auto;margin-right: auto; aspect-ratio: 2/1.25; display: flex; align-items: center; justify-content: center; width: 400px; max-width: 100%; border: 1px solid rgba(0,0,0,0.25);
+  &:not([class*=ft-]){
+    color: body(background); 
+    letter-spacing: 1px;
+    text-shadow: 
+      0 2px 0px body(font-color), 
+      0 3px 0px $primary, 
+      0 4px 0px $primary, 
+      0 5px 0px $primary, 
+      // 0 6px 0px $primary, 
+      0px 0px 3px rgba(body(font-color),.5);
+    &:is(h1){font-weight: bold;}
+  }
+	&.oval{ 
+    @include paper(); 
+    text-align: center; 
+    padding: 1em; 
+    margin-bottom: 2em;
+    border-radius: 200% 80% 200% 80%; 
+    margin-left: auto;margin-right: auto; 
+    aspect-ratio: 2/1.25; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 400px; 
+    max-width: 100%; 
+    border: 1px solid rgba(0,0,0,0.25);
 		outline-style: dashed;
-    	outline-offset: -2em;
-    	outline-width: 16em;
-    	outline-color: rgba($primary,0.055);
+    outline-offset: -2em;
+    outline-width: 16em;
+    outline-color: rgba($primary,0.055);
+    text-shadow: none;
+	  &:not([class*=bg-]){background: body(block-background);}
 	}
 }
 
-.mod_article{margin-bottom: $spacing*1.5; padding: $spacing*1.5 0;
-  @include media-max(xs){margin-bottom: ($spacing*1.5)/2;padding: ($spacing*1.5)/2 0;}
+.block-std{border-radius: $radius;}
+
+.mod_article{margin-bottom: $spacing; padding: $spacing 0;
+  @include media-max(xs){margin-bottom: $spacing/2;padding: $spacing/2 0;}
  }
 
- .d-grid{
- 	&.cols-autofit{
- 		.block-card{min-width: $griditem-minwidth;}
- 	}
- }
+.d-grid{
+	&.cols-autofit{
+		.block-card{min-width: $griditem-minwidth;}
+	}
+}
+
+.tabs__nav{margin-bottom: 0;
+  button{margin: 0;}
+}
+.tabs__content{@include paper(); border-radius: 0 0  $radius $radius; overflow: hidden; padding: 2.5em;}
+
+.heroFW__title{@extend .txt--extrud !optional;}
+
+#wrapper>#footer{padding: 0 !important; @extend .ft-exo !optional;}
+#footer{
+  .footer__copyright{margin: 0 -15px; padding: 0.5rem 1rem; background-color: color(greylight); color: body(font-color);font-weight: bold;}
+  .footer__socials{display: block; margin: 0;
+	a {font-size: 1.2rem; margin: .2rem; background: white; color: footer(background); border-radius: 40px; height: 40px; width: 40px; display: inline-flex; justify-content: center; align-items: center; }
+  }
+  .footer__nav{margin: 0;
+    &>*{float: left;}
+    li{margin: 0.1rem 0.3rem;}
+  }
+
+  .footer__grid{@extend .d-grid,.cols-3,.cols-xs-2;  padding: $spacing $spacing/2;
+    @include media-max(xs){padding: $spacing/2 0;}
+  }
+  .footer__topleft{
+    img{margin-bottom: 0.3rem;}
+  }
+  .footer__topright{grid-column: span 2;}
+  .footer__bottomleft{}
+  .footer__bottomright{grid-column: span 2; align-self: flex-end; justify-self:center;
+    &:before{@include pseudo(block,relative); width: 100%; height: 1px; background: footer(font-color); margin-bottom: 0.2rem;}
+  }
+}
+
+// games list
+.mod_wem_rugby_game_list{}
+.game_default{ position: relative; overflow: hidden;
+  @include media-max(sm){margin-bottom: $spacing; padding: $spacing;}
+  @include media-max(xxs){margin-bottom: $spacing*0.5; padding: $spacing*0.5;}
+  .game__bg{position: absolute; inset: 0; z-index: 0; 
+    img{object-fit: cover; object-position: center; height: 100%; width: 100%;}
+    &:after{content:""; position: absolute; inset: 0; background: body(block-background); opacity: 0.8; z-index: 1;}
+  }
+  .game__content{position: relative; z-index: 1;}
+  .game__details{}
+  .game__teams{}
+  .game__actions{}
+}
+
+
+.gamereader__hero{
+  &[class*=content--] .heroFW__content{
+    @include media-max(md){padding: $spacing;}
+  }
+}
+.gamereader__hero__resume{align-items: baseline;}
+.gamereader__hero__team{text-align: center; align-items: flex-end;
+  .img-container{filter: drop-shadow(2px 4px 2px rgba(0,0,0,0.35));}
+}
+.gamereader__hero__team__data{width: 100%;}
+.gamereader__hero__infos{align-self: center;}
+.gamereader__hero__team{width: clamp(200px, 20vw,400px);}
+.gamereader__hero__team__data{}
+
+
+.mod_wem_rugby_game_reader{ 
+  .team--title{@extend .ft-exo!optional; text-transform: uppercase; font-weight: bold; text-align: center;}
+  .sidebar{
+    .ce_image{text-align: center;}
+  }
+}
+
+
+
+.leaflet-pane{z-index: $z_header - 2 !important;}
+.leaflet-bottom, .leaflet-top{z-index: $z_header - 1 !important;}
