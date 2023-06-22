@@ -206,7 +206,7 @@ $z_header: 100 !default;
   &::-webkit-scrollbar-thumb {background-color: rgba(body(font-color),0.1); border-radius: 20px; border: 0; }
   +.pagination{margin-top: 1em; }
 
-  .sidepanel &{max-height: none; padding: 0;}
+  .sidepanel &{max-height: none; padding: 0; overflow: visible;}
 }
 .wem_chat_goTop{position: absolute; z-index: 1; right: 0; bottom: 0; opacity: 0.2; transition: opacity 0.3s; cursor: pointer; border-radius: 100%; font-size: 1.5em; height: 60px; width: 60px; display: flex; justify-content: center; align-items: center;
   &:hover{opacity: 0.8;}
