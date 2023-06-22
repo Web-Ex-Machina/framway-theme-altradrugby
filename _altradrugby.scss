@@ -44,6 +44,8 @@ $z_header: 100 !default;
 	}
 }
 
+.modalFW__header{padding: 1rem;}
+
 .block-std{border-radius: $radius;}
 
 .mod_article{margin-bottom: $spacing; padding: $spacing 0;
@@ -126,6 +128,77 @@ $z_header: 100 !default;
 }
 
 
+.mod_wem_community_display_ranking{
+  .table td, .table th{vertical-align: middle;padding:.3rem .5rem;}
+  .table-striped tbody tr:nth-of-type(odd){background: rgba($primary,0.1);}
+  .table thead tr{background: $primary; color: white;}
+}
+
+.mod_wem_chat{ position: relative; padding: clamp(1em,5%,$spacing);
+  .pell-actionbar{justify-content: flex-end; flex-wrap: nowrap;}
+  button.pell-button{flex-grow: 0; padding:.3em .5em !important; height: auto; min-width: 0; flex-basis: 60px; flex-shrink: 1; }
+  #wem_chat_previewReply{ position: relative; border: 1px solid rgba(color(grey),0.5); border-radius: 3px; padding: 0.6em 0.8em 0.8em; font-size: 0.8em; margin-bottom: 0.5em;
+    .close{position: absolute; top: 0; right: 0; cursor: pointer; font-size: 1.5em; width: 30px;line-height: 30px; text-align: center;}
+    .content{padding: .5em 1em .85em; margin-left: 0.35em; border-left: 4px solid color(greylight); margin-top: 0.25em; font-style: italic;
+      p:last-child{margin-bottom: 0;}
+    }
+    .author{font-size: 1.2em;}
+  
+    .block-list &{margin: $spacing; margin-bottom: 0; opacity: 0.7;}
+  }
+
+  .item{
+    .wrapper{position: relative; padding: 1em 1.25em; background: transparent; border-radius: 5px; transition: background 0.3s; margin-bottom: 0.5em;}
+    .reply{ font-size: 0.8em; opacity: 0.65; margin-bottom: 0.5em; @extend .ellipsis;
+      &:before{display: inline-block; content:""; height: 1px; width: $spacing; background: color(grey);margin-right: 0.5em; vertical-align: middle;}
+    }
+    .headline{ margin-bottom: 0.25em;
+      .author{font-weight: bold;}
+      .date{opacity: 0.6; font-size: 0.8em;}
+    }
+    .actions{position: absolute; top: 0;transform: translateY(-40%); right: 0.8em; background: color(greylight); padding: 0.2em 0.75em; border-radius: 50px; transition: opacity 0.3s; pointer-events: none; opacity: 0; box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
+      a{display: inline-block; margin: 0 0.5em; color: color(greystronger); opacity: 0.6; transition: opacity 0.3s;
+        &:hover{opacity: 0.85;}
+      }
+    }
+    .content{
+      p:last-child{margin-bottom: 0;}
+    }
+    .figure{ margin-top: 1em;
+      img{cursor: pointer;max-height: 200px; width: auto;}
+    }
+    &:hover,&.active{
+      .wrapper{background: color(greylighter); box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.35);}
+      .actions{opacity: 1; pointer-events: all;}
+    }
+    &.isReply{
+      .wrapper{background: color(greylighter); box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.35);}
+    }
+  }
+}
+.wem_chat_messages{
+  position: relative; max-height: 65vh; 
+  overflow: auto; padding: 2em; padding-left: 0; margin-top: 1em;
+  background: 
+  linear-gradient(body(background) 33%, rgba(body(background), 0)),
+  linear-gradient(rgba(body(background), 0), body(background) 66%) 0 100%,
+  radial-gradient(farthest-side at 50% 0, rgba(color(blacklighter), 0.35), rgba(0,0,0,0)),
+  radial-gradient(farthest-side at 50% 100%, rgba(color(blacklighter), 0.35), rgba(0,0,0,0)) 0 100%;
+  background-color: body(background);
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+  background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(body(font-color),0.1) rgba(body(font-color),0.01);
+  &::-webkit-scrollbar {width: 5px; }
+  &::-webkit-scrollbar-track {background: rgba(body(font-color),0.01); }
+  &::-webkit-scrollbar-thumb {background-color: rgba(body(font-color),0.1); border-radius: 20px; border: 0; }
+  +.pagination{margin-top: 1em; }
+}
+.wem_chat_goTop{position: absolute; z-index: 1; right: 0; bottom: 0; opacity: 0.2; transition: opacity 0.3s; cursor: pointer; border-radius: 100%; font-size: 1.5em; height: 60px; width: 60px; display: flex; justify-content: center; align-items: center;
+  &:hover{opacity: 0.8;}
+}
 
 .leaflet-pane{z-index: $z_header - 2 !important;}
 .leaflet-bottom, .leaflet-top{z-index: $z_header - 1 !important;}
