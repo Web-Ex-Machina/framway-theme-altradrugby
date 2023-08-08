@@ -221,3 +221,56 @@ $z_header: 100 !default;
   &:hover,
   &.active{font-size: 4em;}
 }
+
+
+.mod_wem_rugby_game_list{
+  .pools{
+    :not([class*=ft-]){color: color(white);}
+  }
+  .pool{align-items: flex-start;}
+  .pool__header{display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);  align-items: flex-start;
+    @include linear-grad(
+    (
+      (darken($primary,20),0,1),
+      (lighten($primary,10),100%,1),
+    ),
+    'to right');
+    >*{padding: 1em;}
+  }
+  .pool__title{display: flex; @extend .ft-exo !optional;}
+  .pool__title__label{ writing-mode: vertical-lr; transform: rotate(180deg); text-align: right; font-size: 2.55em; font-weight: 600; line-height: 1;}
+  .pool__title__letter{font-size: 7em; line-height: 0.8; font-weight: 800;}
+  .pool__teams{text-transform: uppercase; font-size: 0.8em;line-height: 1.5; text-align: right;}
+  .pool__teams__team{}
+  .items{ 
+    .game{padding: 1em; display: grid; gap: 1em; font-size: 0.85em; margin-bottom: 0; 
+      height: 120px;
+      @include linear-grad(
+      (
+        (darken($primary,20),0,1),
+        (lighten($primary,10),100%,1),
+      ),
+      'to right');
+      &:nth-child(odd){
+        @include linear-grad(
+        (
+          (darken($primary,20),0,1),
+          (lighten($primary,10),100%,1),
+        ),
+        'to left');
+      }
+    }
+    .game__content{position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 4ch; align-items: center; text-transform: uppercase; line-height: 1.4; font-weight: 700;
+      .team{display: flex; justify-content: start; align-items: center; gap: 1em;
+        &.teamA{justify-content: flex-end; text-align: right;}
+      }
+      .vs{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 0.8em; }
+      .team__label{}
+      .team__score{width: 2.5rem; text-align: center;font-weight: 700; display: flex; flex-direction: column; align-items: center;justify-content: center; line-height: 1;}
+      input.predictionBox{width: 2.5rem; aspect-ratio: 1/1; text-align: center; color:input(font-color); font-weight: 700; font-size: 1.2em;}
+    }
+    .game__details{font-size: 0.8em; text-align: center; font-weight: 300;
+      strong{font-weight: 600;}
+    }
+  }
+}
