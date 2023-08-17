@@ -2,10 +2,10 @@ $z_header: 100 !default;
 #container{
 	@include linear-grad(
 	(
-        ($primary,0,1),
-        (body(background),80vw,1),
+        (#242d5a,0,1),
+        (#e41e25,80vw,1),
     ),
-	'120deg');
+	'90deg');
 }
 
 .ce_headline{
@@ -216,8 +216,9 @@ $z_header: 100 !default;
 .leaflet-bottom, .leaflet-top{z-index: $z_header - 1 !important;}
 
 
-#widgetChatToggler{display: flex;align-items: center;justify-content: center;font-size: 2rem;width: 2em; height: 2em; background: $primary; color: white; position: fixed; bottom: 1rem; right: 1rem; border-radius: 100%; cursor: pointer; z-index: $z_header;
+#widgetChatToggler{display: flex;flex-direction: column; align-items: center;justify-content: center;font-size: 3em;width: 2em; height: 2em; color: $primary; background: white; position: fixed; bottom: 1rem; right: 1rem; border-radius: 100%; cursor: pointer; z-index: $z_header;
   transition: all 0.5s;
+  filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
   &:hover,
   &.active{font-size: 4em;}
 }
