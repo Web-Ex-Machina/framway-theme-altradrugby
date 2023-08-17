@@ -216,13 +216,14 @@ $z_header: 100 !default;
 .leaflet-bottom, .leaflet-top{z-index: $z_header - 1 !important;}
 
 
+#widgetQuizzToggler,
 #widgetChatToggler{display: flex;flex-direction: column; align-items: center;justify-content: center;font-size: 3em;width: 2em; height: 2em; color: $primary; background: white; position: fixed; bottom: 1rem; right: 1rem; border-radius: 100%; cursor: pointer; z-index: $z_header;
-  transition: all 0.5s;
+  transition: all 0.5s;  transform-origin: 100% 100%;
   filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
   &:hover,
-  &.active{font-size: 4em;}
+  &.active{scale: 1.5;  z-index: $z_header+1;}
 }
-
+#widgetQuizzToggler{transform: translateY(-100%); margin-bottom: 1rem; transform-origin: 100% 0;}
 
 .mod_wem_rugby_game_list{
   .pools{
