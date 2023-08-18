@@ -24,7 +24,7 @@ $z_header: 100 !default;
 	&.oval{ 
     @include paper(); 
     text-align: center; 
-    padding: 1em; 
+    padding: 1em 2em; 
     margin-bottom: 2em;
     border-radius: 200% 80% 200% 80%; 
     margin-left: auto;margin-right: auto; 
