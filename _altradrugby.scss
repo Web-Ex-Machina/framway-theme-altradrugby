@@ -276,3 +276,16 @@ $z_header: 100 !default;
     }
   }
 }
+
+
+fieldset.allow-duplication{display: flex; gap: 1em;
+  >legend{width: 100%; float: none;}
+  .duplication-field-wrapper{display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; flex-grow: 1;
+    @include media-max(sm){grid-template-columns: 1fr;}
+    >:not([class*=m-bottom]){margin-bottom: 0;}
+  }
+  .duplication-buttons{display: flex; align-items: flex-end; gap: 5px;
+    @include media-max(sm){flex-direction: column;justify-content: flex-end;}
+    button{margin: 0 !important; @extend .squared !optional;}
+  }
+}
