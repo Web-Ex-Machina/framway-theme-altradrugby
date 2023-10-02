@@ -146,6 +146,12 @@ $z_header: 100 !default;
   .table thead tr{background: $primary; color: white;}
 }
 
+.table-list{
+  .isCurrentUser td{position: sticky; bottom: 0; z-index: 1; top: 120px; background: inherit;}
+}
+.table-list__cell[data-name=rank]{min-width: 80px; width: 80px; text-align: center;}
+
+
 .mod_wem_chat{ position: relative; padding: clamp(1em,5%,$spacing);
   .sidepanel &{ padding: 1em; margin: 0; background: none; box-shadow: none; border-radius: 0;}
 
