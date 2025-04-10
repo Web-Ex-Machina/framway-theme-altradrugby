@@ -48,14 +48,14 @@ $z_header: 100 !default;
 	}
 }
 
-.headerFW__postnav{padding: 0;
-  .mod_changelanguage{
-    a{ 
-      display: flex; align-items: center;justify-content: center;padding: 1em 1.25em; width: 100%; height: 100%; transition: background 0.5s;color: inherit; text-decoration: none;
-      &:hover{background: rgba($primary,0.8); color: contrastFW(color(white),rgba($primary,0.8));}
-    }
-  }
-}
+// .headerFW__postnav{padding: 0;
+//   .mod_changelanguage{
+//     a{ 
+//       display: flex; align-items: center;justify-content: center;padding: 1em 1.25em; width: 100%; height: 100%; transition: background 0.5s;color: inherit; text-decoration: none;
+//       &:hover{background: rgba($primary,0.8); color: contrastFW(color(white),rgba($primary,0.8));}
+//     }
+//   }
+// }
 
 .sidepanel{z-index: $z_header+1;}
 .modalFW__header{padding: 1rem;}
