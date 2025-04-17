@@ -1,12 +1,20 @@
 $z_header: 100 !default;
+$rugbyblue : #242d5a;
+:root{
+  --rugbyblue: #{$rugbyblue};
+}
+
 #container{
 	@include linear-grad(
 	(
-        (#242d5a,0,1),
+        ($rugbyblue,0,1),
         (#e41e25,80vw,1),
     ),
 	'90deg');
 }
+
+
+
 
 .ce_headline{
   &:not([class*=ft-]){
@@ -308,5 +316,16 @@ fieldset.allow-duplication{display: flex; gap: 1em;
   .duplication-buttons{display: flex; align-items: flex-end; gap: 5px;
     @include media-max(sm){flex-direction: column;justify-content: flex-end;}
     button{margin: 0 !important; @extend .squared !optional;}
+  }
+}
+
+.tree{ 
+  ul{padding: 0; list-style: none; margin: 0; width: fit-content; width: 0; white-space: nowrap; display: grid; gap: 5px;}
+  li{width: fit-content; }
+  ul ul{margin-left: 100%; padding-left: 1em; position: relative; margin-top: 0.65em;
+    &:before{content: "⮡ "; position: absolute; right: 100%; top: 0;font-weight: 900; font-size: 1.5em; line-height: 1; color: var(--rugbyblue);}
+    li{
+      &:before{content: "■ "; font-size: 1.5em; line-height: 1; color: var(--rugbyblue);}
+    }
   }
 }
