@@ -75,10 +75,10 @@ $rugbyblue : #242d5a;
 	}
 }
 
-.tabs__nav{margin-bottom: 0;
-  button{margin: 0;}
-}
-.tabs__content{@include paper(); border-radius: 0 0  $radius $radius; overflow: hidden; padding: 2.5em;}
+// .tabs__nav{margin-bottom: 0;
+//   button{margin: 0;}
+// }
+// .tabs__content{@include paper(); border-radius: 0 0  $radius $radius; overflow: hidden; padding: 2.5em;}
 
 .heroFW__title{@extend .txt--extrud !optional;}
 
