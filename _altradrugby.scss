@@ -331,6 +331,20 @@ fieldset.allow-duplication{display: flex; gap: 1em;
   }
 }
 
+.block-info__wrapper{@include grid(); grid-template-columns: Repeat(auto-fill, minmax(var(--griditem-minwidth), 1fr)); grid-auto-rows: 1fr; gap: 2em;
+  .block-info{margin-bottom: 0;}
+}
+.block-info{@include block-std(); display: grid; gap: 0; padding: 1.25em 1.5em;border-radius: $radius; grid-auto-rows: max-content;
+  &.maxi{position: relative; min-height: 160px; display: flex;flex-direction: column;gap: 0; 
+    .block-info__value{justify-content: center; display: flex ; align-items: center; font-size: 2.5em; flex-grow: 1; padding: 1rem; white-space: nowrap;}
+  }
+}
+.block-info__label{font-size: 1.5em; font-family: 'Exo', sans-serif;display: block; line-height: 1.4;
+  *+&{margin-top: 1em;}
+}
+.block-info__value{opacity: 0.85; }
+
+.informations__block{@extend .block-info__wrapper; font-size: 0.8em;}
 
 .event__infos__wrapper{
   &.has-media{
@@ -347,14 +361,14 @@ fieldset.allow-duplication{display: flex; gap: 1em;
   }
 }
 .event__infos{}
-.event__info{display: grid;gap: 1em;}
-.event__info__label{font-size: 1.5em; font-family: 'Exo', sans-serif;display: block;
-  // &:after{content: " / "; display: inline-block; font-size: inherit; color: inherit; margin-inline: 0.5em 0.25em;}
-  // &:before{    color: inherit; content: " \\ "; display: inline-block; font-size: inherit; margin-inline: 0 .25em;}
+.event__info{
+  [class*="event__"]+[class*="event__"]{margin-top: 1em;}
 }
-.event__info__value{opacity: 0.85; }
-.event__media{ display: grid; gap: 2em; justify-items: center;
-  a{display: grid; gap:0.25em; justify-items: center;
+.event__info__label{}
+.event__info__value{}
+.event__media{ 
+  .event__media__wrapper{display: grid; gap: 2em; justify-items: start; align-content: start;}
+  a{display: grid; gap:0.25em;
     i[class*=fa],svg{
       font-size: 2em;
       width: 40px;
@@ -368,6 +382,3 @@ fieldset.allow-duplication{display: flex; gap: 1em;
   }
 }
 
-.event__nbGuests{position: relative; min-height: 160px; display: flex;flex-direction: column;
-  .event__info__value{justify-content: center; display: flex ; align-items: center; font-size: 3em; flex-grow: 1;}
-}
