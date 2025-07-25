@@ -226,7 +226,7 @@ $rugbyblue : #242d5a;
   }
 }
 .table-list__cell[data-name=rank]{min-width: 80px; width: 80px; text-align: center;}
-
+.table-list__cell[data-name=actions] {vertical-align: middle;}
 
 .mod_wem_chat{ position: relative; padding: clamp(1em,5%,$spacing);
   .sidepanel &{ padding: 1em; margin: 0; background: none; box-shadow: none; border-radius: 0;}
