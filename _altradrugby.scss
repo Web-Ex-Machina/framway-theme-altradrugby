@@ -219,6 +219,11 @@ $rugbyblue : #242d5a;
 .table-list{
   .isCurrentUser td{position: sticky; bottom: 0; z-index: 1; top: 120px; background: inherit;}
   .table-list__line.isPlusOne{font-size: 0.8em; background: Hsl(from var(--rugbyblue) h s calc(l + 60));}
+  .table-list__line.isRejected{background: Hsl(from $error h s calc(l + 30));}
+  &.lastColSticky .table-list__line .table-list__cell:last-of-type:not(:empty){
+    background: var(--primary); color: white; font-size: 1.25em;
+    .table-list__action--toggler:hover, .table-list__action:hover{color: inherit;}
+  }
 }
 .table-list__cell[data-name=rank]{min-width: 80px; width: 80px; text-align: center;}
 
